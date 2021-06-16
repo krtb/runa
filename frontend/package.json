@@ -1,9 +1,8 @@
 {
   "name": "runa-frontend",
   "version": "2.0.0",
-  "description": "runa Fits! An example React, GraphQL, Next and Apollo",
-  "main": "index.js",
-  "scripts": {
+  "description": "Runa! An e-commer web app!",
+  "main": "index.js", "scripts": {
     "dev": "next -p 7777",
     "build": "next build",
     "start": "next start -p 7777",
