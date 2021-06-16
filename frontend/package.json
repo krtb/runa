@@ -2,7 +2,8 @@
   "name": "runa-frontend",
   "version": "2.0.0",
   "description": "Runa! An e-commer web app!",
-  "main": "index.js", "scripts": {
+  "main": "index.js",
+  "scripts": {
     "dev": "next -p 7777",
     "build": "next build",
     "start": "next start -p 7777",
@@ -48,7 +49,6 @@
     "eslint": "^7.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-config-wesbos": "^1.0.1",
     "eslint-plugin-html": "^6.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -58,11 +58,6 @@
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "wesbos"
-    ]
   },
   "jest": {
     "setupFilesAfterEnv": [
