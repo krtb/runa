@@ -34,6 +34,7 @@ const HeaderStyles = styled.header`
 		border-bottom: 1px solid var(--black, black);
 	}
 `;
+
 export default function Header() {
 	return (
 	<HeaderStyles>
