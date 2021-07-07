@@ -5,6 +5,7 @@ import { config, createSchema } from '@keystone-next/keystone/schema';
 import {User} from './schemas/User';
 import { withItemData, statelessSessions } from '@keystone-next/keystone/session';
 import 'dotenv/config';
+import { insertSeedData } from './seed-data';
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost/runa';
 
@@ -34,7 +35,12 @@ export default withAuth(
 		db: {
 			adapter: 'mongoose',
 			url: databaseURL,
-			// TODO: add data seeding here
+			onConnect: async (keystone) => {
+				console.log('Connected to database!');
+				if(process.argv.includes('--seed-data')){
+					await insertSeedData(keystone)
+				}
+			}
 		},
 		lists: createSchema({
 			User,
