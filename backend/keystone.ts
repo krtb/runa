@@ -1,8 +1,10 @@
+import { ProductImage } from './schemas/ProductImage';
+import { Product } from './schemas/Product';
 import {createAuth} from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import {User} from './schemas/User';
-import 'dotenv/config';
 import { withItemData, statelessSessions } from '@keystone-next/keystone/session';
+import 'dotenv/config';
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost/runa';
 
@@ -35,7 +37,9 @@ export default withAuth(
 			// TODO: add data seeding here
 		},
 		lists: createSchema({
-			User
+			User,
+			Product,
+			ProductImage,
 		}),
 		ui: {
 		    // Show the UI only for people who pass this test
