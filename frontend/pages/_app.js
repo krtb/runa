@@ -2,15 +2,33 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 import Page from '../components/Page';
 import '../components/styles/nprogress.css';
+import { ApolloProvider } from '@apollo/client';
+import withData from '../lib/withData';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-export default function myApp({Component, pageProps}) {
+function MyApp({Component, pageProps, apollo}) {
+	console.log(apollo);
 	return (
-		<Page>
-			<Component {...pageProps}/>
-		</Page>
+		<ApolloProvider client={apollo} >
+			<Page>
+				<Component {...pageProps}/>
+			</Page>
+		</ApolloProvider>
 	);
 }
+
+// await context, ctx, before rendering props
+MyApp.getInitialProps = async function({Component, ctx}){
+	let pageProps = {};
+	if(Component.getInitialProps){
+		pageProps = await Component.getInitialProps(ctx)
+	}
+	// make props available at a page level
+	pageProps.query = ctx.query
+	return {pageProps};
+}
+// send App, but inject apollo client alongside, with help of Provider function
+export default withData(MyApp);
