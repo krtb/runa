@@ -1,7 +1,11 @@
 import ItemStyles from "./styles/ItemStyles";
 
-export default function Product({ product, className }) {
+export default function Product({ product }) {
 	return (
-			<ItemStyles>{ product.name }</ItemStyles>
+			<ItemStyles>
+				<img src={product?.photo?.image?.publicUrlTransformed} 
+					alt={product.name}
+				/>
+			</ItemStyles>
 		);
 }
