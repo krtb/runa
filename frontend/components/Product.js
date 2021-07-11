@@ -2,6 +2,7 @@ import ItemStyles from "./styles/ItemStyles";
 import Title from "./styles/Title";
 import PriceTag from "./styles/PriceTag";
 import Link from "next/dist/client/link";
+import formatMoney from "../lib/formatMoney";
 
 export default function Product({ product }) {
 	return (
@@ -16,8 +17,10 @@ export default function Product({ product }) {
 					</Link>
 				</Title>
 				<PriceTag>
-					{product.price}
+					{formatMoney(product.price)}
 				</PriceTag>
+				<p>{product.description}</p>
+				{/* add buttons to edit and delete an item */}
 			</ItemStyles>
 		);
 }
