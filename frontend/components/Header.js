@@ -44,11 +44,11 @@ export default function Header() {
 					Runa
 				</Link>
 			</Logo>
+			<Nav/>
 		</div>
 		<div className="sub-bar">
 			<p>Search</p>
 		</div>
-		<Nav />
 	</HeaderStyles>
 	);
 }
