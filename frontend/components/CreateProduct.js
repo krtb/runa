@@ -2,8 +2,11 @@
 
 export default function CreateProduct() {
 	return (
-		<div>
-			
-		</div>
+		<form>
+			<label htmlFor="name">
+				Name
+				<input type="text" id="name" name="name" placeholder="Name" />				
+			</label>
+		</form>
 	)
 }
