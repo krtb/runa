@@ -1,5 +1,6 @@
 // import { useState } from 'react'; => using custom useForm webhook, instead of useState
 import useForm from '../lib/useForm';
+import Form from './styles/Form'
 
 export default function createProduct(){
 
@@ -11,7 +12,7 @@ export default function createProduct(){
 	});
 
 	return(
-		<form>
+		<Form>
 			<label htmlFor='name'>
 				Name 
 				<input
@@ -45,6 +46,6 @@ export default function createProduct(){
 			<button type='button' onClick={resetForm}>
 				Reset Form
 			</button>
-		</form>
+		</Form>
 	)                           
 }
