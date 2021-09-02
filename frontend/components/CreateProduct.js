@@ -1,28 +1,50 @@
-// import React from 'react' => Don't need to import React anymore, it's assumed
+// import { useState } from 'react'; => using custom useForm webhook, instead of useState
+import useForm from '../lib/useForm';
 
-import { useState } from "react"
+export default function createProduct(){
 
+	// destructuring inputs
+	const {inputs, handleChange, clearForm, resetForm} = useForm({
+		name: 'bag',
+		price: 100,
+		description: 'this is a sweet bag!'
+	});
 
-export default function CreateProduct() {
-
-	// Reactive Piece of state => whenever this piece of state changes, it will be updated in the app.
-	const [name, setName] = useState('Kurt')
-
-	return (
+	return(
 		<form>
-			<label htmlFor="name">
-				Name
-				<input 
-					type="text" 
-					id="name" 
-					name="name" 
-					placeholder="Name"
-					value={name}
-					onChange={e => {
-						setName(e.target.value)
-					}}
-				/>				
+			<label htmlFor='name'>
+				Name 
+				<input
+					type='text'
+					id='name'
+					name='name'
+					placeholder='Name'
+					value={inputs.name}
+					onChange={handleChange}
+				/>
+
+				
 			</label>
+
+			<label htmlFor='price'>
+				Price 
+				<input
+					type='number'
+					id='price'
+					name='price'
+					placeholder='price'
+					value={inputs.price}
+					onChange={handleChange}
+				/>
+			</label>
+
+			<button type='button' onClick={clearForm}>
+				Clear Form
+			</button>
+
+			<button type='button' onClick={resetForm}>
+				Reset Form
+			</button>
 		</form>
-	)
+	)                           
 }
